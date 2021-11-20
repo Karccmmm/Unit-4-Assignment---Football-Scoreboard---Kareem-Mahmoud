@@ -1,3 +1,7 @@
+//Unit 4- Football Scoreboard
+//Kareem Mahmoud
+//COSC 1437
+
 
 #include <iostream>
 #include <string>
@@ -14,7 +18,7 @@ int score;
 bool Home_Status;
 int Timeout_Count;
 public:
-Team ()           //default constructor
+Team ()  //default constructor
 {
 score = 0;
 Home_Status = false;   //visitor = false, home = true
@@ -33,7 +37,7 @@ Home_Status = hs;
 }
 void setName (string n)
 {
-name = n;
+name = n; 
 }
 void setTimeout_Count (int tc)
 {
@@ -77,7 +81,7 @@ class Scoreboard
 {
 private:
 int half;
-Team home;           //object that is a member of another object
+Team home; //object that is a member of another object
 Team visitor;
 public:
 Scoreboard ()
@@ -108,11 +112,12 @@ Team getVisitor () const
 {
 return visitor;
 }
+
 void showScoreboard ()
-{               ///////DISPLAY BOARD******
+{               ///////DISPLAY BOARD
 string color = "";
 string reset = "\x1b[0m";
-color = "\x1b[44m\x1b[4m";   //blue letter, underlined
+color = "\x1b[44m\x1b[4m";   
 cout<<"*************************************"<< endl;
 cout <<"*"<< color << "\t\t"<<"¡American Football!" << reset << "\t\t\t"<<"*"<< endl;
 string score;   //score color
@@ -147,11 +152,10 @@ string newCityB = "";
 int timeout=0;
 int newScore = 0;
 tOne.setHome_Status (true);   //tOne is the Home Team now   
-s.setHome (tOne);       //add some initial data to s
+s.setHome (tOne);       
 s.setVisitor (tTwo);
 do
 {
-//system("clear"); //clear the screen of previous content
 s.showScoreboard ();   //show the current scoreboard data
 //menu choices
 cout << "A = Update Team Names" << endl;
@@ -164,16 +168,14 @@ cout << ">";
 cin >> userChoice;
 
 if (userChoice == "A" || userChoice == "a")
-   {           //Dr_T challenge Accept a new name for s's home team
+   {          
    cout << "****Update Home Team Score module*** " << endl;
    cout << "\nPlease enter a new name for the home team: ";
-   cin >> newNameA;   //change that home team's default name andchange that home team's default name
-   tOne.setName (newNameA);   //set tOne's data to the new desired name
+   cin >> newNameA;   
+   tOne.setName (newNameA);   //setting tOne's data to the new desired name
    cout << "\nPlease enter a new name for the visitor team: ";
    cin >> newNameB;
    tTwo.setName (newNameB);
-//cin >> newNameB;
-//tOne.setName(newNameB);
    }
 else if (userChoice == "B" || userChoice == "b")
    {
@@ -221,7 +223,7 @@ else           //invalid input: default clause
    cout << "\nInvalid input." << endl;
    sleep (2);       //wait two seconds, go to the next process
    }
-s.setHome (tOne);       //refresh the data in s to the new updates...
+s.setHome (tOne);       //refresh the data in s to the new updates
 s.setVisitor (tTwo);
 }
 while (userChoice != "E" && userChoice != "e");
